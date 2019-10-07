@@ -22,7 +22,7 @@ public class ValidarLogin {
     
     public String verificarLogin(Usuario usuario){
         if(!verificarLongitudNombre(usuario.getNombre())){
-            return("longitud nombre inconrrecta");
+            return("longitud nombre incorrecta");
         }
         if(!verificarLongitudPassword(usuario.getPassword())){
             return("Longitud contraseña incorrecta");
