@@ -108,13 +108,12 @@ public class Ingreso extends javax.swing.JPanel {
         Usuario usuario = new Usuario();
         usuario.setNombre(nombreTF.getText());
         usuario.setPassword(contraseniaTF.getText());
-        
+
         ValidarLogin validar = new ValidarLogin();
         System.out.println("------------");
         String resultado = validar.verificarLogin(usuario);
         System.out.println(resultado);
     }//GEN-LAST:event_aceptarBActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aceptarB;

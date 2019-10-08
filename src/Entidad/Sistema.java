@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author westradab
  */
 public class Sistema {
-    
+
     private ArrayList<Usuario> usuarios;
 
     public Sistema() {
@@ -25,5 +25,5 @@ public class Sistema {
     public void setUsuarios(ArrayList<Usuario> usuarios) {
         this.usuarios = usuarios;
     }
-    
+
 }

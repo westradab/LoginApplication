@@ -14,47 +14,47 @@ import Frontera.FramePrincipal;
  * @author ESTRADA
  */
 public class ValidarRegistro {
-    
+
     private Sistema sistema = FramePrincipal.sistema;
 
     public ValidarRegistro() {
-    }  
-    
-    public String verificarRegistro(Usuario usuario, String validarContrasenia){
-        if(!verificarLongitudNombre(usuario.getNombre())){
-            return("longitud nombre incorrecta");
+    }
+
+    public String verificarRegistro(Usuario usuario, String validarContrasenia) {
+        if (!verificarLongitudNombre(usuario.getNombre())) {
+            return ("longitud nombre incorrecta");
         }
-        if(!verificarLongitudPassword(usuario.getPassword())){
-            return("Longitud contraseña incorrecta");
+        if (!verificarLongitudPassword(usuario.getPassword())) {
+            return ("Longitud contraseña incorrecta");
         }
-        if(!verificarCoincidenciaContrasenia(usuario.getPassword(), validarContrasenia)){
-            return("Las contraseñas no coinciden");
+        if (!verificarCoincidenciaContrasenia(usuario.getPassword(), validarContrasenia)) {
+            return ("Las contraseñas no coinciden");
         }
-        if(verificarUsuarioRegistrado(usuario)){
-            return("Este usuario ya esta registrado");
+        if (verificarUsuarioRegistrado(usuario)) {
+            return ("Este usuario ya esta registrado");
         }
         sistema.getUsuarios().add(usuario);
-        return("Usuario Registrado con exito");
+        return ("Usuario Registrado con exito");
     }
-    
-    public boolean verificarLongitudNombre(String nombre){
-        return(nombre.length() > 1 && nombre.length() <= 6);
+
+    public boolean verificarLongitudNombre(String nombre) {
+        return (nombre.length() > 1 && nombre.length() <= 6);
     }
-    
-    public boolean verificarLongitudPassword(String password){
-        return(password.length() >= 3 && password.length() < 6);
+
+    public boolean verificarLongitudPassword(String password) {
+        return (password.length() >= 3 && password.length() < 6);
     }
-    
-    public boolean verificarCoincidenciaContrasenia(String contrasenia, String validarContrasenia){
+
+    public boolean verificarCoincidenciaContrasenia(String contrasenia, String validarContrasenia) {
         return contrasenia.equals(validarContrasenia);
     }
-    
-    public boolean verificarUsuarioRegistrado(Usuario usuario){
-        for(Usuario u : sistema.getUsuarios()){
-            if(u.getNombre().equals(usuario.getNombre())){
-                return(true);
+
+    public boolean verificarUsuarioRegistrado(Usuario usuario) {
+        for (Usuario u : sistema.getUsuarios()) {
+            if (u.getNombre().equals(usuario.getNombre())) {
+                return (true);
             }
         }
-        return(false);
+        return (false);
     }
 }

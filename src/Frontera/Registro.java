@@ -109,13 +109,12 @@ public class Registro extends javax.swing.JPanel {
         usuario.setNombre(nombreTF.getText());
         usuario.setPassword(contraseniaTF.getText());
         String validarContrasenia = validarContraseniaTF.getText();
-        
+
         ValidarRegistro validar = new ValidarRegistro();
         System.out.println("------------");
         String resultado = validar.verificarRegistro(usuario, validarContrasenia);
         System.out.println(resultado);
     }//GEN-LAST:event_registrarBActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel contraseniaL;

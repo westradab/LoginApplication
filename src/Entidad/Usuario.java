@@ -10,7 +10,7 @@ package Entidad;
  * @author westradab
  */
 public class Usuario {
-    
+
     private String nombre;
     private String password;
 
@@ -32,5 +32,5 @@ public class Usuario {
     public void setPassword(String password) {
         this.password = password;
     }
-    
+
 }
