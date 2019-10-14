@@ -22,34 +22,26 @@ public class ValidarRegistro {
 
     public String verificarRegistro(Usuario usuario, String validarContrasenia) {
         if (!verificarLongitudNombre(usuario.getNombre())) {
-            return ("longitud nombre incorrecta");
+            return ("Longitud nombre incorrecta");
+        }
+        if (verificarUsuarioExiste(usuario)) {
+            return ("Este usuario ya existe");
         }
         if (!verificarLongitudPassword(usuario.getPassword())) {
             return ("Longitud contraseña incorrecta");
         }
-        if (!verificarCoincidenciaContrasenia(usuario.getPassword(), validarContrasenia)) {
+        if (!verificarPasswordCoincide(usuario.getPassword(), validarContrasenia)) {
             return ("Las contraseñas no coinciden");
         }
-        if (verificarUsuarioRegistrado(usuario)) {
-            return ("Este usuario ya esta registrado");
-        }
         sistema.getUsuarios().add(usuario);
-        return ("Usuario Registrado con exito");
+        return ("Usuario registrado con exito");
     }
 
     public boolean verificarLongitudNombre(String nombre) {
         return (nombre.length() > 1 && nombre.length() <= 6);
     }
-
-    public boolean verificarLongitudPassword(String password) {
-        return (password.length() >= 3 && password.length() < 6);
-    }
-
-    public boolean verificarCoincidenciaContrasenia(String contrasenia, String validarContrasenia) {
-        return contrasenia.equals(validarContrasenia);
-    }
-
-    public boolean verificarUsuarioRegistrado(Usuario usuario) {
+    
+    public boolean verificarUsuarioExiste(Usuario usuario) {
         for (Usuario u : sistema.getUsuarios()) {
             if (u.getNombre().equals(usuario.getNombre())) {
                 return (true);
@@ -57,4 +49,13 @@ public class ValidarRegistro {
         }
         return (false);
     }
+    
+    public boolean verificarLongitudPassword(String password) {
+        return (password.length() >= 3 && password.length() < 6);
+    }
+
+    public boolean verificarPasswordCoincide(String contrasenia, String validarContrasenia) {
+        return contrasenia.equals(validarContrasenia);
+    }
+
 }
